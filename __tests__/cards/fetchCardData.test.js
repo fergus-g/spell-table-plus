@@ -17,12 +17,11 @@ test("fetchCardData calls the correct API endpoint", async () => {
   const cardName = "Black Lotus";
   await fetchCardData(cardName);
   expect(fetch).toHaveBeenCalledWith(
-    `https://api.scryfall.com/cards/named?fuzzy=${cardName}`
+    `https://api.scryfall.com/cards/random`
   );
 });
 
 test("fetchCardData handles errors", async () => {
   fetch.mockImplementationOnce(() => Promise.reject("API is down"));
-  const cardName = "Black Lotus";
-  await expect(fetchCardData(cardName)).rejects.toEqual("API is down");
+  await expect(fetchCardData()).rejects.toEqual("API is down");
 });
