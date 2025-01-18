@@ -3,7 +3,6 @@ import { JSDOM } from "jsdom";
 import fs from "fs";
 import path from "path";
 
-// Load the HTML file into JSDOM
 const html = fs.readFileSync(path.resolve(__dirname, "../index.html"), "utf8");
 
 let window, document;
@@ -37,5 +36,5 @@ test("clicking the button should create an img element", async () => {
 
   const img = document.querySelector(".card-container img");
   expect(img).not.toBeNull();
-  searchButton.click();
 });
+
