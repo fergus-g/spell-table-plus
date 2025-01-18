@@ -1,15 +1,10 @@
 import fetchCardData from "./fetchCardData.js";
 
 export default async function sortCard(card) {
-  if (!card || !card.type_line) {
-    throw new Error("Invalid card object");
-  }
   if (card.lang != "en") {
     const newCard = await fetchCardData();
     return sortCard(newCard);
   }
-
-  console.log(`Sorting card: ${card.name} with type: ${card.type_line}`);
 
   if (card.type_line.includes("Creature")) {
     return { zone: "creature", card };
@@ -18,7 +13,6 @@ export default async function sortCard(card) {
     card.type_line.includes("Instant") ||
     card.type_line.includes("Sorcery")
   ) {
-    console.log("Instant/Sorcery Hit, fetching new card...");
     const newCard = await fetchCardData();
     return sortCard(newCard); // Recursively call sortCard with the new card
   }
@@ -35,5 +29,6 @@ export default async function sortCard(card) {
     return { zone: "land", card };
   }
 
-  throw new Error("Unknown card type");
+  // If none of the conditions are met, throw an error
+  throw new Error(`Unknown card type: ${card.type_line}`);
 }

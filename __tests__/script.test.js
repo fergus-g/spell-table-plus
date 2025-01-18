@@ -5,21 +5,27 @@ import path from "path";
 
 const html = fs.readFileSync(path.resolve(__dirname, "../index.html"), "utf8");
 
-let window, document;
-
 beforeEach(async () => {
   const dom = new JSDOM(html, { runScripts: "dangerously" });
-  window = dom.window;
-  document = window.document;
-  global.document = document;
-  global.window = window;
+  global.window = dom.window;
+  global.document = dom.window.document;
 
   // Mock fetchCardData function
-  vi.mock("../cards/fetchCardData.js", () => ({
+  vi.mock("../cards/fetchCardData", () => ({
     __esModule: true,
     default: async () => ({
       name: "test-card",
+      type_line: "Creature",
       image_uris: { small: "http://example.com/test-card.jpg" },
+    }),
+  }));
+
+  // Mock sortCard function
+  vi.mock("../cards/sortCard", () => ({
+    __esModule: true,
+    default: async (card) => ({
+      zone: "creature",
+      card,
     }),
   }));
 
@@ -34,6 +40,8 @@ test("clicking the button should create an img element", async () => {
   // Wait for the async function to complete
   await new Promise((resolve) => setTimeout(resolve, 100));
 
-  const img = document.getElementById("creature");
+  const img = document.querySelector("#creature-images img");
   expect(img).not.toBeNull();
+  expect(img.src).toBe("http://example.com/test-card.jpg");
+  expect(img.className).toBe("card-img");
 });
