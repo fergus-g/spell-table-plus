@@ -4,6 +4,10 @@ export default async function sortCard(card) {
   if (!card || !card.type_line) {
     throw new Error("Invalid card object");
   }
+  if (card.lang != "en") {
+    const newCard = await fetchCardData();
+    return sortCard(newCard);
+  }
 
   console.log(`Sorting card: ${card.name} with type: ${card.type_line}`);
 
