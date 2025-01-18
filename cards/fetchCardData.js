@@ -1,5 +1,5 @@
-export default async function fetchCardData(cardName) {
-  let url = `https://api.scryfall.com/cards/named?fuzzy=${cardName}`;
+export default async function fetchCardData() {
+  let url = `https://api.scryfall.com/cards/random`;
   let response = await fetch(url);
   let json = await response.json();
 
