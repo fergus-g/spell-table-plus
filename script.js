@@ -1,7 +1,5 @@
 import fetchCardData from "./cards/fetchCardData.js";
 
-let cardName = "opt";
-
 const search = document.getElementById("search-card");
 const cardSearchContainer = document.getElementsByClassName("card-container");
 
@@ -10,10 +8,14 @@ search.addEventListener("click", () => {
 });
 
 async function showCard() {
-  let returnedCard = await fetchCardData(cardName);
+
+  const existingImg = cardSearchContainer[0].querySelector("img");
+  if (existingImg) {
+    cardSearchContainer[0].removeChild(existingImg);
+  }
+  let returnedCard = await fetchCardData();
   let cardImg = document.createElement("img");
   cardImg.className = returnedCard.name;
-  cardImg.src = returnedCard.image_uris.normal;
-
+  cardImg.src = returnedCard.image_uris.small;
   cardSearchContainer[0].appendChild(cardImg);
 }
