@@ -1,23 +1,35 @@
+import fetchCardData from "./fetchCardData.js";
+
 export default async function sortCard(card) {
-  if (card.type_line.includes( "Creature")) {
-    return "creature";
+  if (!card || !card.type_line) {
+    throw new Error("Invalid card object");
   }
-    if (card.type_line === "Instant") {
-        return "instant";
-    }
-    if (card.type_line === "Sorcery") {
-        return "sorcery";
-    }
-    if (card.type_line.includes("Artifact")) {
-        return "artifact";
-    }
-    if (card.type_line.includes("Enchantment")) {
-        return "enchantment";
-    }
-    if (card.type_line === "Planeswalker") {
-        return "planeswalker";
-    }
-    if (card.type_line.includes("Land")) {
-        return "land";
-    }
+
+  console.log(`Sorting card: ${card.name} with type: ${card.type_line}`);
+
+  if (card.type_line.includes("Creature")) {
+    return { zone: "creature", card };
+  }
+  if (
+    card.type_line.includes("Instant") ||
+    card.type_line.includes("Sorcery")
+  ) {
+    console.log("Instant/Sorcery Hit, fetching new card...");
+    const newCard = await fetchCardData();
+    return sortCard(newCard); // Recursively call sortCard with the new card
+  }
+  if (card.type_line.includes("Artifact")) {
+    return { zone: "artifact", card };
+  }
+  if (card.type_line.includes("Enchantment")) {
+    return { zone: "enchantment", card };
+  }
+  if (card.type_line.includes("Planeswalker")) {
+    return { zone: "planeswalker", card };
+  }
+  if (card.type_line.includes("Land")) {
+    return { zone: "land", card };
+  }
+
+  throw new Error("Unknown card type");
 }

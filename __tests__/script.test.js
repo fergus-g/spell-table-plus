@@ -34,7 +34,6 @@ test("clicking the button should create an img element", async () => {
   // Wait for the async function to complete
   await new Promise((resolve) => setTimeout(resolve, 100));
 
-  const img = document.querySelector(".card-container img");
+  const img = document.getElementById("creature");
   expect(img).not.toBeNull();
 });
-

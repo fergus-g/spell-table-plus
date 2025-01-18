@@ -1,40 +1,63 @@
+body {
+  justify-content: center;
+  background-image: url("https://ultrapro.com/cdn/shop/products/19629_MAT_MTG_BRO_STITCH.png?v=1652739085&width=675"); /* Replace with the path to your image */
+  background-size: cover; /* Ensure the image covers the entire background */
+  /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+}
+
 .card-zone {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    margin: 0 auto;
-    max-width: 1000px;
+  display: flex;
+}
+
+#creature-enchantment {
+  display: flex;
+  border-radius: 10px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: aliceblue;
+  background-color: rgba(240, 248, 255, 0.4);
 }
 
 #creature-zone {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
-    max-width: 1000px;
+  flex: 3; /* 60% of the width */
 }
 
 #enchantment-zone {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
-    max-width: 1000px;
+  flex: 2; /* 40% of the width */
+}
+
+.zone-heading {
+  text-align: center;
+}
+
+.card-images {
+  opacity: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 #lands-zone {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
-    max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1000px;
+  border: 10px;
+  border-style: solid;
 }
 
 #artifacts-zone {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
-    max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1000px;
+  border: 10px;
+  border-style: solid;
+}
+
+.card-img {
+  padding: 10px;
 }
