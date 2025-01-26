@@ -4,6 +4,7 @@ import sortCard from "./cards/sortCard.js";
 const search = document.getElementById("search-card");
 const searchCardContainer = document.getElementById("searched-card");
 let searchedCard = {};
+let playersHand = [];
 
 search.addEventListener("click", () => {
   if (Object.keys(searchedCard).length === 0) {
