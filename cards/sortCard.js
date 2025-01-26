@@ -3,6 +3,7 @@ import fetchCardData from "./fetchCardData.js";
 export default async function sortCard(card) {
   if (card.lang != "en") {
     const newCard = await fetchCardData();
+
     return sortCard(newCard);
   }
 
