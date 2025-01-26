@@ -6,8 +6,9 @@ const searchCardContainer = document.getElementById("searched-card");
 let searchedCard = {};
 
 search.addEventListener("click", () => {
-  
-  showCard();
+  if (Object.keys(searchedCard).length === 0) {
+    showCard();
+  }
 });
 
 async function showCard() {
@@ -37,4 +38,5 @@ searchCardContainer.addEventListener("click", async () => {
   cardImg.setAttribute("id", card.type_line);
   cardImg.src = card.image_uris.small;
   cardContainer.appendChild(cardImg);
+  searchedCard = {};
 });
