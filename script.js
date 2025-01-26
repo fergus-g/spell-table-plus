@@ -6,7 +6,7 @@ const searchCardContainer = document.getElementById("searched-card");
 let searchedCard = {};
 
 search.addEventListener("click", () => {
-  console.log("Im still active");
+  
   showCard();
 });
 
