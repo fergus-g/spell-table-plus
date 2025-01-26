@@ -21,10 +21,15 @@ body {
 
 #creature-zone {
   flex: 3; /* 60% of the width */
+  border-color: black;
+  border-style: solid;
 }
 
 #enchantment-zone {
   flex: 2; /* 40% of the width */
+  border-color: black;
+  border-style: solid;
+  height: 450px;
 }
 
 .zone-heading {
@@ -37,25 +42,27 @@ body {
   flex-direction: row;
   align-items: center;
 }
+#lands-artifacts {
+  display: flex;
+  border-radius: 10px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: aliceblue;
+  background-color: rgba(240, 248, 255, 0.4);
+  height: 450px;
+}
 
 #lands-zone {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 0 auto;
-  max-width: 1000px;
-  border: 10px;
+  flex: 3; /* 60% of the width */
+  border-color: black;
   border-style: solid;
 }
 
 #artifacts-zone {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 0 auto;
-  max-width: 1000px;
-  border: 10px;
+  flex: 2; /* 40% of the width */
+  border-color: black;
   border-style: solid;
+  height: 450px;
 }
 
 .card-img {
