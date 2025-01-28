@@ -12,10 +12,11 @@ export default async function sortCard(card) {
   }
   if (
     card.type_line.includes("Instant") ||
-    card.type_line.includes("Sorcery")
+    card.type_line.includes("Sorcery") ||
+    card.type_line.includes("Stickers")
   ) {
     const newCard = await fetchCardData();
-    return sortCard(newCard); // Recursively call sortCard with the new card
+    return sortCard(newCard); 
   }
   if (card.type_line.includes("Artifact")) {
     return { zone: "artifact", card };
