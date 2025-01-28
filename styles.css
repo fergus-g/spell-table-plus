@@ -10,6 +10,43 @@ body {
   display: flex;
 }
 
+#search-card {
+  background-color: #13aa52;
+  justify-content: flex-end;
+  border: 1px solid #13aa52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#search-card :hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  #search-card {
+    padding: 10px 30px;
+  }
+}
+
 #creature-enchantment {
   display: flex;
   border-radius: 10px;
@@ -85,4 +122,59 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+body {
+  background-color: #f3f7f4;
+}
+
+.sidebar {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #afc2d5;
+  color: #fff;
+  transition: right 0.3s ease-in-out;
+  font-family: "Open Sans", sans-serif;
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.hamburger {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 2;
+  color: #fff;
+  background-color: #070a0d;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0;
+  margin-top: 70px;
+}
+
+.menu li {
+  padding: 10px;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #000;
 }

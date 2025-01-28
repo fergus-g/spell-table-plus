@@ -22,7 +22,6 @@ async function showCard() {
     playersHand.push(returnedCard);
   }
 
-
   playersHand.forEach((card, index) => {
     let cardImg = document.createElement("img");
     cardImg.className = "card-img";
@@ -46,3 +45,10 @@ async function showCard() {
 
   searchedCard = playersHand[playersHand.length - 1];
 }
+
+const hamburger = document.querySelector(".hamburger");
+const sidebar = document.querySelector(".sidebar");
+
+hamburger.addEventListener("click", () => {
+  sidebar.classList.toggle("open");
+});
