@@ -22,7 +22,7 @@ async function showCard() {
     playersHand.push(returnedCard);
   }
 
-  // Use forEach to iterate over playersHand
+
   playersHand.forEach((card, index) => {
     let cardImg = document.createElement("img");
     cardImg.className = "card-img";
@@ -30,7 +30,6 @@ async function showCard() {
     cardImg.src = card.image_uris.small;
     searchCardContainer.appendChild(cardImg);
 
-    // Add event listener to each card image
     cardImg.addEventListener("click", async (event) => {
       event.target.remove();
       let { zone, card: sortedCard } = await sortCard(playersHand[index]);
@@ -40,6 +39,8 @@ async function showCard() {
       sortedCardImg.setAttribute("id", sortedCard.type_line);
       sortedCardImg.src = sortedCard.image_uris.small;
       cardContainer.appendChild(sortedCardImg);
+      playersHand.splice(index, 1);
+      console.log(playersHand);
     });
   });
 
