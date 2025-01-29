@@ -1,7 +1,8 @@
 import fetchCardData from "./fetchCardData.js";
 
 export default async function sortCard(card) {
-  if (card.lang != "en") {
+  if (card.lang !== "en") {
+    ("Card is not in English, fetching new card");
     const newCard = await fetchCardData();
 
     return sortCard(newCard);
@@ -25,7 +26,7 @@ export default async function sortCard(card) {
     return { zone: "enchantment", card };
   }
   if (card.type_line.includes("Planeswalker")) {
-    return { zone: "planeswalker", card };
+    return { zone: "enchantment", card };
   }
   if (card.type_line.includes("Land")) {
     return { zone: "land", card };

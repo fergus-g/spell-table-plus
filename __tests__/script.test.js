@@ -52,7 +52,7 @@ test("clicking the button should create an img element", async () => {
   await new Promise((resolve) => setTimeout(resolve, 100));
 
   const img = document.getElementById("Creature");
-  console.log("Image is this: ", img);
+
   expect(img).not.toBeNull();
   expect(img.src).toBe("http://example.com/test-card-2.jpg");
   expect(img.className).toBe("card-img");
