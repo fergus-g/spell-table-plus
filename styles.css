@@ -1,9 +1,9 @@
 body {
   justify-content: center;
-  background-image: url("https://ultrapro.com/cdn/shop/products/19629_MAT_MTG_BRO_STITCH.png?v=1652739085&width=675"); /* Replace with the path to your image */
-  background-size: cover; /* Ensure the image covers the entire background */
-  /* Center the background image */
-  background-repeat: no-repeat; /* Prevent the background image from repeating */
+  background-image: url("https://gamebreakermalta.com/wp-content/uploads/2024/10/MTG-LOGO.jpg");
+  background-size: cover;
+
+  background-repeat: no-repeat;
 }
 
 .card-zone {
